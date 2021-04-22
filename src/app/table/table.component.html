@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Edited</th>
+        <th scope="col">Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of store.products" id={{p.id}}>
+        <th scope="row" >{{p.id | slice: 0:8}}</th>
+        <td>{{p.name}}</td>
+        <td>{{p.editDate | date : 'yy-MM-dd h:mm:ss' }}</td>
+        <td>{{p.type.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

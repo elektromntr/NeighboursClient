@@ -1,0 +1,12 @@
+@import "../../styles/colors.scss";
+
+.navbar {
+    background-color: $primary-color;
+    a {
+        color: white;
+    }
+    a:hover {
+        color: whitesmoke;
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,9 @@
+@import "././styles/colors.scss";
+
+thead {
+    background-color: $secondary-color;
+    
+    th {
+        color: white;
+    }
+}
