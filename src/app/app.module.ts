@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
 import { Store } from "./services/store.service";
+import { ProductComponent } from './product/product.component';
+import { TableRowComponent } from './table/table-row/table-row.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TableComponent
+    TableComponent,
+    ProductComponent,
+    TableRowComponent
   ],
   imports: [
     BrowserModule,
