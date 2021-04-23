@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, Output } from '@angular/core';
 import { Store } from "../services/store.service";
 import { Product } from '../shared/Product';
+import { Type } from '../shared/Type';
 
 @Component({
   selector: 'app-table',
@@ -9,16 +10,17 @@ import { Product } from '../shared/Product';
 })
 export class TableComponent implements OnInit
 {
-  products: Product[] = this.store;
+  products: Product[] = [];
 
-  constructor(public store: Store)
+  constructor(private store: Store)
   {
   }
 
   ngOnInit(): void
   {
-    this.store.loadProducts()
-      .subscribe();
+    this.store.loadProducts().subscribe((products: Product[]) => {
+      this.products = products;
+    });
+    this.products = this.store.getProducts();
   }
-
 }

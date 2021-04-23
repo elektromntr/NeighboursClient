@@ -10,7 +10,8 @@
     </thead>
     <tbody>
       <app-table-row
-        *ngFor="let p of store.products">
+        *ngFor="let productEl of products"
+        [product]="productEl">
       </app-table-row>
     </tbody>
   </table>

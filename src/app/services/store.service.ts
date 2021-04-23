@@ -20,7 +20,12 @@ export class Store
             .pipe(map(data =>
             {
                 this.products = data;
+                console.log(data);
                 return;
             }));
+    }
+
+    getProducts(){
+        return this.products;
     }
 }

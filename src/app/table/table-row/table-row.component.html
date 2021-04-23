@@ -1,6 +1,6 @@
-<tr id={{p.id}}>
-    <th scope="row" >{{p.id | slice: 0:8}}</th>
-    <td>{{p.name}}</td>
-    <td>{{p.editDate | date : 'yy-MM-dd h:mm:ss' }}</td>
-    <td>{{p.type.name}}</td>
-  </tr>
+<tr id={{product.id}}>
+    <th scope="row" >{{product.id | slice: 0:8}}</th>
+    <td>{{product.name}}</td>
+    <td>{{product.editDate | date : 'yy-MM-dd h:mm:ss' }}</td>
+    <td>{{product.type.name}}</td>
+</tr>
