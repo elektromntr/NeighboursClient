@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from 'src/app/services/store.service';
+import { Component, Input, OnInit } from '@angular/core';
+//import { Store } from 'src/app/services/store.service';
+import { Product } from 'src/app/shared/Product';
 
 @Component({
   selector: 'app-table-row',
@@ -8,11 +9,17 @@ import { Store } from 'src/app/services/store.service';
 })
 export class TableRowComponent implements OnInit {
 
-  constructor(public store: Store) { }
+  @Input() product!: Product;
+
+  // constructor(public store: Store) { }
+  constructor() { }
+
 
   ngOnInit(): void
   {
-    
+    // this.store.loadProducts()
+    //   .subscribe();
+    console.log('table-row');
   }
 
 }
