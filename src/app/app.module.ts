@@ -8,6 +8,8 @@ import { TableComponent } from './table/table.component';
 import { Store } from "./services/store.service";
 import { ProductComponent } from './product/product.component';
 import { TableRowComponent } from './table/table-row/table-row.component';
+import { LoggingService } from './services/logging.service';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { TableRowComponent } from './table/table-row/table-row.component';
     HttpClientModule
   ],
   providers: [
-    Store
+    Store,
+    LoggingService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

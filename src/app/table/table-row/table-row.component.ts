@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LoggingService } from 'src/app/services/logging.service';
+import { ProductService } from 'src/app/services/product.service';
 //import { Store } from 'src/app/services/store.service';
 import { Product } from 'src/app/shared/Product';
 
@@ -12,14 +14,13 @@ export class TableRowComponent implements OnInit {
   @Input() product!: Product;
 
   // constructor(public store: Store) { }
-  constructor() { }
+  constructor(private logger: LoggingService, 
+    private productService: ProductService) { }
 
 
   ngOnInit(): void
   {
-    // this.store.loadProducts()
-    //   .subscribe();
-    console.log('table-row');
+    this.logger.logToConsole("Row created for: " + this.product.name);
   }
 
 }

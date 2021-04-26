@@ -1,26 +1,31 @@
-import { Component, ElementRef, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Output } from '@angular/core';
+import { LoggingService } from '../services/logging.service';
+import { ProductService } from '../services/product.service';
 import { Store } from "../services/store.service";
 import { Product } from '../shared/Product';
-import { Type } from '../shared/Type';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
+  // providers: [LoggingService]
 })
 export class TableComponent implements OnInit
 {
   products: Product[] = [];
-
-  constructor(private store: Store)
+  constructor(private store: Store, 
+    private logger: LoggingService, 
+    private productService: ProductService)
   {
   }
 
   ngOnInit(): void
   {
-    this.store.loadProducts().subscribe((products: Product[]) => {
-      this.products = products;
-    });
-    this.products = this.store.getProducts();
+    this.products = this.productService.products;
+    this.products.forEach(p => this.logger.logToConsole(p));
+  }
+
+  onProductSelection(productEl: Product){
+    this.logger.logToConsole(productEl);
   }
 }

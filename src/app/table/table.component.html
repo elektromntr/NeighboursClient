@@ -9,9 +9,10 @@
       </tr>
     </thead>
     <tbody>
-      <app-table-row
+      <app-table-row class="table-row"
         *ngFor="let productEl of products"
-        [product]="productEl">
+        [product]="productEl"
+        (click)=onProductSelection(productEl)>
       </app-table-row>
     </tbody>
   </table>

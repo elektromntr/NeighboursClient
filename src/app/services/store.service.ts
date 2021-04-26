@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { Product } from "../shared/Product";
+import { LoggingService } from "./logging.service";
 
 @Injectable()
 export class Store
