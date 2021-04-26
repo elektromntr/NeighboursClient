@@ -1,0 +1,8 @@
+@import "././styles/colors.scss";
+
+tr {
+    &:hover {
+        background-color: $tertiary-color;
+        cursor: pointer;
+    }
+}
