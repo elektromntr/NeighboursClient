@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, ElementRef, Input, OnInit, Output } from '@angular/core';
 import { LoggingService } from '../services/logging.service';
 import { ProductService } from '../services/product.service';
 import { Product } from '../shared/Product';
@@ -11,7 +11,9 @@ import { Product } from '../shared/Product';
 })
 export class TableComponent implements OnInit
 {
+  @Output() selectedProduct = new EventEmitter<Product>();
   products: Product[] = [];
+
   constructor(private logger: LoggingService, 
     private productService: ProductService)
   {
@@ -26,7 +28,7 @@ export class TableComponent implements OnInit
   }
 
   onProductSelection(productEl: Product){
-    this.logger.logToConsole(productEl);
-    alert(productEl.name);
+    this.productService.productSelected.emit(productEl);
+    this.logger.logToConsole("Selected product: "+productEl.name);
   }
 }

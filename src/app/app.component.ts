@@ -10,11 +10,18 @@ import { Product } from './shared/Product';
 })
 export class AppComponent implements OnInit {
   title = 'NeighboursClient';
-
+  selectedProduct!: Product;
 
   constructor(private productService: ProductService){
   }
 
   ngOnInit(): void {
+    this.productService.productSelected
+      .subscribe(
+        (data: Product) =>
+          {
+            this.selectedProduct = data;
+          }
+      );
   }
 }

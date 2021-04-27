@@ -1,5 +1,23 @@
 <div class="container">
-    <h2>
-        
-    </h2>
+    <div class="row col-12">
+        <h2>
+            {{selectedProduct.name}}
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            Type: {{selectedProduct.type.name}}
+        </div>
+        <div class="col-6">
+            Id: {{selectedProduct.id}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            Grade: {{selectedProduct.grade}}
+        </div>
+        <div class="col-6">
+            Edited: {{selectedProduct.editDate | date : 'yy-MM-dd h:mm:ss' }}
+        </div>
+    </div>
 </div>

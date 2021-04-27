@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable, OnInit } from "@angular/core";
+import { EventEmitter, Injectable, OnInit } from "@angular/core";
 import { map } from "rxjs/operators";
 import { Product } from "../shared/Product";
 import { LoggingService } from "./logging.service";
@@ -11,6 +11,7 @@ export class ProductService {
             new Product("456", "Testowy 2", "typ2"),
             new Product("789", "Testowy 3", "typ3"),
     ]
+    productSelected = new EventEmitter<Product>();
 
     constructor(private logging: LoggingService,
         private http: HttpClient){
@@ -27,4 +28,5 @@ export class ProductService {
         this.products.push(new Product(id, name, type));
         this.logging.logToConsole("Product added: "+name);
     }
+
 }
